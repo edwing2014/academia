@@ -1,0 +1,411 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falgun - Metro Style Bootstrap Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Admin Panel Template">
+<meta name="author" content="Westilian: Kamrujaman Shohel">
+<!-- styles -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/jquery.gritter.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="css/font-awesome.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="css/font-awesome-ie7.min.css">
+<![endif]-->
+<link href="css/tablecloth.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="css/ie/ie7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="css/ie/ie8.css" />
+<![endif]-->
+<!--[if IE 9]>
+<link rel="stylesheet" type="text/css" href="css/ie/ie9.css" />
+<![endif]-->
+<link href="css/prettify.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+<!--fav and touch icons -->
+<link rel="shortcut icon" href="ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+<!--============ javascript ===========-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap-fileupload.js"></script>
+<script src="js/jquery.cleditor.js"></script>
+<script src="js/jquery.metadata.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/jquery.tablecloth.js"></script>
+<script src="js/jquery.flot.js"></script>
+<script src="js/jquery.flot.selection.js"></script>
+<script src="js/excanvas.js"></script>
+<script src="js/jquery.flot.pie.js"></script>
+<script src="js/jquery.flot.stack.js"></script>
+<script src="js/jquery.flot.time.js"></script>
+<script src="js/jquery.flot.tooltip.js"></script>
+<script src="js/jquery.flot.resize.js"></script>
+<script src="js/jquery.collapsible.js"></script>
+<script src="js/accordion.nav.js"></script>
+<script src="js/jquery.gritter.js"></script>
+<script src="js/prettify.js"></script>
+<script src="js/custom.js"></script>
+
+<script src="js/respond.min.js"></script>
+<script src="js/ios-orientationchange-fix.js"></script>
+<script type="text/javascript">
+            $(function () {
+                $.cleditor.defaultOptions.controls = "bold italic underline strikethrough";
+                editor = $(".chat-inputbox").cleditor({
+                    width: "99%",
+                    height: "100%"
+                });
+            });
+</script>
+<script>
+
+$(function() {
+        $(".paper-table").tablecloth({
+          theme: "paper",
+          striped: true,
+          sortable: true,
+          condensed: false
+        });
+      });
+	  
+
+
+/**=========================
+LEFT NAV ICON ANIMATION 
+==============================**/
+$(function () {
+    $(".left-primary-nav a").hover(function () {
+        $(this).stop().animate({
+            fontSize: "30px"
+        }, 200);
+    }, function () {
+        $(this).stop().animate({
+            fontSize: "24px"
+        }, 100);
+    });
+});
+</script>
+<script type="text/javascript">
+    var data7_1 = [
+        [1354586000000, 153],
+        [1354587000000, 658],
+        [1354588000000, 198],
+        [1354589000000, 663],
+        [1354590000000, 801],
+        [1354591000000, 1080],
+        [1354592000000, 353],
+        [1354593000000, 749],
+        [1354594000000, 523],
+        [1354595000000, 258],
+        [1354596000000, 688],
+        [1354597000000, 364]
+    ];
+    var data7_2 = [
+        [1354586000000, 53],
+        [1354587000000, 65],
+        [1354588000000, 98],
+        [1354589000000, 83],
+        [1354590000000, 80],
+        [1354591000000, 108],
+        [1354592000000, 120],
+        [1354593000000, 74],
+        [1354594000000, 23],
+        [1354595000000, 79],
+        [1354596000000, 88],
+        [1354597000000, 36]
+    ];
+    $(function () {
+        $.plot($("#visitors-chart #visitors-container"), [{
+            data: data7_1,
+            label: "Page View",
+            lines: {
+                fill: true
+            }
+        }, {
+            data: data7_2,
+            label: "Online User",
+            points: {
+                show: true
+            },
+            lines: {
+                show: true
+            },
+            yaxis: 2
+        }
+        ],
+        {
+            series: {
+                lines: {
+                    show: true,
+                    fill: false
+                },
+                points: {
+                    show: true,
+                    lineWidth: 2,
+                    fill: true,
+                    fillColor: "#ffffff",
+                    symbol: "circle",
+                    radius: 5,
+                },
+                shadowSize: 0,
+            },
+            grid: {
+                hoverable: true,
+                clickable: true,
+                tickColor: "#f9f9f9",
+                borderWidth: 1
+            },
+            colors: ["#b086c3", "#ea701b"],
+            tooltip: true,
+            tooltipOpts: {
+				  shifts: { 
+					  x: -100                     //10
+				  },
+                defaultTheme: false
+            },
+            xaxis: {
+                mode: "time",
+                timeformat: "%0m/%0d %0H:%0M"
+            },
+            yaxes: [{
+                /* First y axis */
+            }, {
+                /* Second y axis */
+                position: "right" /* left or right */
+            }]
+        }
+        );
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        var data = [{
+            label: "Page View",
+            data: 70
+        }, {
+            label: "Online User",
+            data: 30
+        }];
+        var options = {
+            series: {
+                pie: {
+                    show: true,
+					innerRadius: 0.5,
+            show: true
+                }
+            },
+            legend: {
+                show: true
+            },
+            grid: {
+                hoverable: true,
+                clickable: true
+            },
+			 colors: ["#b086c3", "#ea701b"],
+            tooltip: true,
+            tooltipOpts: {
+				shifts: { 
+					  x: -100                     //10
+				  },
+                defaultTheme: false
+            }
+        };
+        $.plot($("#pie-chart-donut #pie-donutContainer"), data, options);
+    });
+</script>
+</head>
+<body>
+
+<div class="layout">
+	<!-- Navbar
+    ================================================== -->
+	<div class="navbar navbar-inverse top-nav">
+		<div class="navbar-inner">
+			<div class="container">
+				<span class="home-link"><a href="index.html" class="icon-home"></a></span><a class="brand" href="./index.html"><img src="images/logo-falgun.png" width="103" height="50" alt="Falgun"></a>
+				
+				
+			</div>
+		</div>
+	</div>
+	<div class="leftbar leftbar-close clearfix">
+		
+		<div class="left-nav clearfix">
+  <div class="responsive-leftbar"> <i class="icon-list"></i> </div>
+  <div class="left-secondary-nav">
+    <div>
+      <h4 class="side-head">Start</h4>
+      <ul id="nav" class="accordion-nav">
+        <li><a href="index.html"><i class=" icon-cogs"></i> Getting Started </a></li>
+      </ul>
+      <h4 class="side-head">Forms</h4>
+      <ul id="nav" class="accordion-nav">
+        <li><a href="form-elements.html"><i class="icon-list-alt"></i> Form Elements <span class="notify-tip">50</span></a></li>
+        <li><a href="form-components.html"><i class="icon-th"></i> Form Components </a></li>
+        <li><a href="form-validation.html"><i class="icon-ok-circle"></i> Form Validation</a></li>
+        <li><a href="form-wizard.html"><i class="icon-external-link"></i> Wizard </a></li>
+        <li><a href="text-editor.html"><i class="icon-pencil"></i> WYSIWYG editor </a></li>
+      </ul>
+      <h4 class="side-head">Features</h4>
+      <ul class="accordion-nav">
+        <li ><a href="tables.html"><i class="icon-table"></i> Basic Tables</a></li>
+        <li><a href="table-cloth.html"><i class="icon-table"></i> Tables-Theme</a></li>
+        <li><a href="data-tables.html"><i class=" icon-th"></i> Data Tables</a></li>
+        <li><a href="calendar.html"><i class=" icon-calendar"></i> Calendar</a></li>
+        <li><a href="file-manager.html"><i class=" icon-folder-open"></i> File Manager</a></li>
+      </ul>
+      <h4 class="side-head">UI Elements</h4>
+      <ul class="accordion-nav">
+        <li><a href="components-widgets.html"><i class=" icon-list-alt"></i> UI Components</a></li>
+        <li ><a href="buttons-icons.html"><i class=" icon-th-large"></i> Buttons &amp; Icons</a></li>
+      </ul>
+      <h4 class="side-head">Pages</h4>
+      <ul class="accordion-nav">
+        <li><a href="gallery.html"><i class=" icon-picture"></i> Gallery</a></li>
+      </ul>
+      <h4 class="side-head">Charts</h4>
+      <ul class="accordion-nav">
+        <li><a href="flot-chart.html"><i class="icon-bar-chart"></i> Flot Charts</a></li>
+        <li><a href="google-chart.html"><i class="icon-google-plus-sign"></i> Goolge Chart</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+	</div>
+	<div class="main-wrapper">
+		<div class="container-fluid">
+        <div class="primary-head">
+						<h3 class="page-header">Falgun - <small>Metro Style Bootstrap Admin Dashboard</small></h3>
+						
+					</div>
+			<div class="row-fluid introduction">
+        <div class="span4">
+          <ul class="author-info" style="list-style:none; margin:0px;">
+            <li> <strong>Created:</strong> 10 March 2013</li>
+            <li><strong>Latest Update:</strong> 12 March 2013 </li>
+            <li><strong> By:</strong> Kamrujaman Shohel </li>
+            <li><strong> Email:</strong> mail@kjaman.com </li>
+          </ul>
+        </div>
+         
+        <div class="span4">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email by my <a href="http://themeforest.net/user/westilian">profile email form</a>.<br>
+        Thanks so much!</div>
+      </div>
+      <h3>Support Forum</h3>
+      <div class="row-fluid ">
+      <div class="span4">
+         <a class="btn btn-large btn-info btn-block" href="http://goo.gl/E1auh">Support Forum</a>
+         </div>
+      <div class="span4">
+      I have launched my support forum to give you better support. For any more help Please go <a href="http://goo.gl/E1auh">http://goo.gl/E1auh</a> here. I will reply there. Thanks </div>
+      </div>
+			<div class="row-fluid ">
+				<div class="span12">
+					
+                    
+                   
+					
+                  <h3>Initialization</h3>
+                  <p>For this theme follwing files must require for all pages. Here I have used lots of jquery plugins and lots of js functions those I included with individually with every pages. You can use those as your own way. </p>
+                 
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Falgun - Metro Style Bootstrap Admin Dashboard&lt;/title&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;meta name=&quot;description&quot; content=&quot;Admin Panel Template&quot;&gt;
+&lt;meta name=&quot;author&quot; content=&quot;Westilian: Kamrujaman Shohel&quot;&gt;
+&lt;!-- styles --&gt;
+&lt;link href=&quot;css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;css/bootstrap-responsive.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+// Require for picto graphic font icons named font-awesome
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/font-awesome.css&quot;&gt;
+
+//follwing file require for IE older version css hack
+&lt;!--[if IE 7]&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/font-awesome-ie7.min.css&quot;&gt;
+&lt;![endif]--&gt;
+&lt;link href=&quot;css/styles.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;!--[if IE 7]&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/ie/ie7.css&quot; /&gt;
+&lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/ie/ie8.css&quot; /&gt;
+&lt;![endif]--&gt;
+&lt;!--[if IE 9]&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/ie/ie9.css&quot; /&gt;
+&lt;![endif]--&gt;
+
+//this file require for google font
+&lt;link href=&#39;http://fonts.googleapis.com/css?family=Dosis&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;ico/favicon.ico&quot;&gt;
+&lt;!--============ javascript ===========--&gt;
+&lt;script src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/jquery-ui-1.8.16.custom.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/bootstrap.js&quot;&gt;&lt;/script&gt;
+
+//require for accordion nav
+&lt;script src=&quot;js/accordion.nav.js&quot;&gt;&lt;/script&gt;
+
+//custom.js have some common js function those are required for every pages like side tab nav, tootip...
+&lt;script src=&quot;js/custom.js&quot;&gt;&lt;/script&gt;
+
+//respond.min.js require for IE older version media query support
+&lt;script src=&quot;js/respond.min.js&quot;&gt;&lt;/script&gt;
+
+//iphone iPad orientation zoom fix
+&lt;script src=&quot;js/ios-orientationchange-fix.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+.......
+.......
+.......
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+                    <h3>Requires HTML5 doctype</h3>
+                  <p>  This is basic startup of this tmeplate</p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;!--BODY--&gt;
+&lt;/html&gt; <!--BODY-->
+</pre>
+     <h3>Requires Meta Tag</h3>
+<p>Following meta tag must require to ensure devices display responsive pages properly:</p>
+<pre class="prettyprint linenums">
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+</pre>
+
+			  </div>
+			</div>
+			
+			
+		
+			
+		</div>
+	</div>
+	<div class="copyright">
+		<p>
+			 &copy; 2013 westilian
+		</p>
+	</div>
+	<div class="scroll-top">
+		<a href="#" class="tip-top" title="Go Top"><i class="icon-double-angle-up"></i></a>
+	</div>
+</div>
+</body>
+</html>

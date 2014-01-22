@@ -1,0 +1,1218 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falgun - Metro Style Bootstrap Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Admin Panel Template">
+<meta name="author" content="Westilian: Kamrujaman Shohel">
+<!-- styles -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/jquery.minicolors.css" rel="stylesheet">
+<link href="css/bootstrap-editable.css" rel="stylesheet">
+<link href="js/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet" type="text/css">
+<link href="css/jquery.gritter.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="css/font-awesome.css">
+<!--[if IE 7]>
+            <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
+        <![endif]-->
+<link href="css/styles.css" rel="stylesheet">
+<!--[if IE 7]>
+            <link rel="stylesheet" type="text/css" href="css/ie/ie7.css" />
+        <![endif]-->
+<!--[if IE 8]>
+            <link rel="stylesheet" type="text/css" href="css/ie/ie8.css" />
+        <![endif]-->
+<!--[if IE 9]>
+            <link rel="stylesheet" type="text/css" href="css/ie/ie9.css" />
+        <![endif]-->
+<link href="css/prettify.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+<!--fav and touch icons -->
+<link rel="shortcut icon" href="ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+<!--============j avascript===========-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootbox.js"></script>
+<script src="js/jquery.sparkline.js"></script>
+<script src="js/jquery.minicolors.js"></script>
+<script src="js/bootstrap-editable.js"></script>
+<script src="js/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>
+<script src="js/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js"></script>
+<script src="js/inputs-ext/wysihtml5/wysihtml5.js"></script>
+<script src="js/jquery.gritter.js"></script>
+<script src="js/accordion.nav.js"></script>
+<script src="js/prettify.js"></script>
+<script src="js/custom.js"></script>
+
+<script src="js/respond.min.js"></script>
+<script src="js/ios-orientationchange-fix.js"></script>
+<script>
+
+/**=========================
+SPARKLINE MINI CHART
+==============================**/
+$(function () {
+    $(".line-min-chart").sparkline([50, 10, 2, 3, 40, 5, 26, 10, 15, 20, 40, 60], {
+        type: 'line',
+        width: '80',
+        height: '40',
+        lineColor: '#2b2b2b',
+        fillColor: '#e5e5e5',
+        lineWidth: 2,
+        highlightSpotColor: '#0e8e0e',
+        spotRadius: 3,
+        drawNormalOnTop: true
+    });
+    $(".bar-min-chart").sparkline([50, 10, 2, 3, 40, 5, 26, 10, -15, 20, 40, 60], {
+        type: 'bar',
+        height: '40',
+        barWidth: 4,
+        barSpacing: 1,
+        barColor: '#007f00'
+    });
+    $(".pie-min-chart").sparkline([3, 5, 2, 10, 8], {
+        type: 'pie',
+        width: '40',
+        height: '40'
+    });
+    $(".tristate-min-chart").sparkline([1, 1, 0, 1, -1, -1, 1, -1, 0, 0, 1, 1], {
+        type: 'tristate',
+        height: '40',
+        posBarColor: '#bf005f',
+        negBarColor: '#ff7f00',
+        zeroBarColor: '#545454',
+        barWidth: 4,
+        barSpacing: 1
+    });
+});
+            $(document).on("click", ".alert-box", function (e) {
+                bootbox.alert("Hello world!", function () {
+                    //callback
+                });
+            });
+            $(document).on("click", ".confirm", function (e) {
+                bootbox.confirm("Are you sure?", function (result) {
+                    //callback
+                });
+            });
+            $(document).on("click", ".prompt", function (e) {
+                bootbox.prompt("What is your name?", function (result) {
+                    if (result === null) {
+                        //callback
+                    } else {
+                        //callback
+                    }
+                });
+            });
+            $(document).on("click", ".dialog", function (e) {
+                bootbox.dialog("I am a custom dialog", [{
+                    "label": "Success!",
+                    "class": "btn-success",
+                    "callback": function () {
+                    }
+                }, {
+                    "label": "Danger!",
+                    "class": "btn-danger",
+                    "callback": function () {
+                    }
+                }, {
+                    "label": "Click ME!",
+                    "class": "btn-primary",
+                    "callback": function () {
+                    }
+                }, {
+                    "label": "Just a button..."
+                }]);
+            });
+            $(function () {
+                var consoleTimeout;
+                $('.minicolors').each(function () {
+                    //
+                    // Dear reader, it's actually much easier than this to initialize 
+                    // miniColors. For example:
+                    //
+                    //  $(selector).minicolors();
+                    //
+                    // The way I've done it below is just to make it easier for me 
+                    // when developing the plugin. It keeps me sane, but it may not 
+                    // have the same effect on you!
+                    //
+                    $(this).minicolors({
+                        control: $(this).attr('data-control') || 'hue',
+                        defaultValue: $(this).attr('data-default-value') || '',
+                        inline: $(this).hasClass('inline'),
+                        letterCase: $(this).hasClass('uppercase') ? 'uppercase' : 'lowercase',
+                        opacity: $(this).hasClass('opacity'),
+                        position: $(this).attr('data-position') || 'default',
+                        styles: $(this).attr('data-style') || '',
+                        swatchPosition: $(this).attr('data-swatch-position') || 'left',
+                        textfield: !$(this).hasClass('no-textfield'),
+                        theme: $(this).attr('data-theme') || 'default',
+                        change: function (hex, opacity) {
+                            // Generate text to show in console
+                            text = hex ? hex : 'transparent';
+                            if (opacity) text += ', ' + opacity;
+                            text += ' / ' + $(this).minicolors('rgbaString');
+                            // Show text in console; disappear after a few seconds
+                            $('#console').text(text).addClass('busy');
+                            clearTimeout(consoleTimeout);
+                            consoleTimeout = setTimeout(function () {
+                                $('#console').removeClass('busy');
+                            }, 3000);
+                        }
+                    });
+                });
+            });
+            $(function () {
+                $.fn.editable.defaults.mode = 'inline';
+                $('#username').editable({
+                    type: 'text',
+                    pk: '1',
+                    url: '/post',
+                    title: 'Enter username'
+                });
+            });
+            $(function () {
+                $('#comments').editable({
+                    url: '/post',
+                    title: 'Enter comments'
+                });
+            });
+            $(function () {
+                $('#note').editable();
+                $('#pencil').click(function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $('#note').editable('toggle');
+                });
+            });
+            $(function () {
+                $('.textarea').wysihtml5();
+            });
+        </script>
+<script type="text/javascript">
+            $(function () {
+                // global setting override
+                /*
+		$.extend($.gritter.options, {
+		    class_name: 'gritter-light', // for light notifications (can be added directly to $.gritter.add too)
+		    position: 'bottom-left', // possibilities: bottom-left, bottom-right, top-left, top-right
+			fade_in_speed: 100, // how fast notifications fade in (string or int)
+			fade_out_speed: 100, // how fast the notices fade out
+			time: 3000 // hang on the screen for...
+		});
+        */
+                $('#add-sticky').click(function () {
+                    var unique_id = $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a sticky notice!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                        // (string | optional) the image to display on the left
+                        image: 'images/notification-thumb.png',
+                        // (bool | optional) if you want it to fade out on its own or just sit there
+                        sticky: true,
+                        // (int | optional) the time you want it to be alive for before fading out
+                        time: '',
+                        // (string | optional) the class name you want to apply to that specific message
+                        class_name: 'my-sticky-class'
+                    });
+                    // You can have it return a unique id, this can be used to manually remove it later using
+                    /*
+			setTimeout(function(){
+				$.gritter.remove(unique_id, {
+					fade: true,
+					speed: 'slow'
+				});
+			}, 6000)
+			*/
+                    return false;
+                });
+                $('#add-regular').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a regular notice!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                        // (string | optional) the image to display on the left
+                        image: 'images/notification-thumb.png',
+                        // (bool | optional) if you want it to fade out on its own or just sit there
+                        sticky: false,
+                        // (int | optional) the time you want it to be alive for before fading out
+                        time: ''
+                    });
+                    return false;
+                });
+                $('#add-max').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a notice with a max of 3 on screen at one time!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                        // (string | optional) the image to display on the left
+                        image: 'images/notification-thumb.png',
+                        // (bool | optional) if you want it to fade out on its own or just sit there
+                        sticky: false,
+                        // (function) before the gritter notice is opened
+                        before_open: function () {
+                            if ($('.gritter-item-wrapper').length == 3) {
+                                // Returning false prevents a new gritter from opening
+                                return false;
+                            }
+                        }
+                    });
+                    return false;
+                });
+                $('#add-without-image').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a notice without an image!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                    });
+                    return false;
+                });
+                $('#add-gritter-light').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a light notification',
+                        // (string | mandatory) the text inside the notification
+                        text: 'Just add a "gritter-light" class_name to your $.gritter.add or globally to $.gritter.options.class_name',
+                        class_name: 'gritter-light'
+                    });
+                    return false;
+                });
+                $('#add-with-callbacks').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a notice with callbacks!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'The callback is...',
+                        // (function | optional) function called before it opens
+                        before_open: function () {
+                            alert('I am called before it opens');
+                        },
+                        // (function | optional) function called after it opens
+                        after_open: function (e) {
+                            alert("I am called after it opens: \nI am passed the jQuery object for the created Gritter element...\n" + e);
+                        },
+                        // (function | optional) function called before it closes
+                        before_close: function (e, manual_close) {
+                            var manually = (manual_close) ? 'The "X" was clicked to close me!' : '';
+                            alert("I am called before it closes: I am passed the jQuery object for the Gritter element... \n" + manually);
+                        },
+                        // (function | optional) function called after it closes
+                        after_close: function (e, manual_close) {
+                            var manually = (manual_close) ? 'The "X" was clicked to close me!' : '';
+                            alert('I am called after it closes. ' + manually);
+                        }
+                    });
+                    return false;
+                });
+                $('#add-sticky-with-callbacks').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a sticky notice with callbacks!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'Sticky sticky notice.. sticky sticky notice...',
+                        // Stickeh!
+                        sticky: true,
+                        // (function | optional) function called before it opens
+                        before_open: function () {
+                            alert('I am a sticky called before it opens');
+                        },
+                        // (function | optional) function called after it opens
+                        after_open: function (e) {
+                            alert("I am a sticky called after it opens: \nI am passed the jQuery object for the created Gritter element...\n" + e);
+                        },
+                        // (function | optional) function called before it closes
+                        before_close: function (e) {
+                            alert("I am a sticky called before it closes: I am passed the jQuery object for the Gritter element... \n" + e);
+                        },
+                        // (function | optional) function called after it closes
+                        after_close: function () {
+                            alert('I am a sticky called after it closes');
+                        }
+                    });
+                    return false;
+                });
+                $("#remove-all").click(function () {
+                    $.gritter.removeAll();
+                    return false;
+                });
+                $("#remove-all-with-callbacks").click(function () {
+                    $.gritter.removeAll({
+                        before_close: function (e) {
+                            alert("I am called before all notifications are closed.  I am passed the jQuery object containing all  of Gritter notifications.\n" + e);
+                        },
+                        after_close: function () {
+                            alert('I am called after everything has been closed.');
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>
+<style>
+                    .sample-noty {
+                        margin:0px;
+                    }
+                    .sample-noty li {
+                        list-style:none;
+                    }
+                    .widget-container {
+                        padding-bottom:20px;
+                    }
+</style>
+</head>
+<body>
+<div class="layout">
+	<!-- Navbar================================================== -->
+	<div class="navbar navbar-inverse top-nav">
+		<div class="navbar-inner">
+			<div class="container">
+				<span class="home-link"><a href="index.html" class="icon-home"></a></span><a class="brand" href="./index.html"><img src="images/logo-falgun.png" width="103" height="50" alt="Falgun"></a>
+				
+				
+			</div>
+		</div>
+	</div>
+	<div class="leftbar leftbar-close clearfix">
+		
+		<div class="left-nav clearfix">
+  <div class="responsive-leftbar"> <i class="icon-list"></i> </div>
+  <div class="left-secondary-nav">
+    <div>
+      <h4 class="side-head">Start</h4>
+      <ul id="nav" class="accordion-nav">
+        <li><a href="index.html"><i class=" icon-cogs"></i> Getting Started </a></li>
+      </ul>
+      <h4 class="side-head">Forms</h4>
+      <ul id="nav" class="accordion-nav">
+        <li><a href="form-elements.html"><i class="icon-list-alt"></i> Form Elements <span class="notify-tip">50</span></a></li>
+        <li><a href="form-components.html"><i class="icon-th"></i> Form Components </a></li>
+        <li><a href="form-validation.html"><i class="icon-ok-circle"></i> Form Validation</a></li>
+        <li><a href="form-wizard.html"><i class="icon-external-link"></i> Wizard </a></li>
+        <li><a href="text-editor.html"><i class="icon-pencil"></i> WYSIWYG editor </a></li>
+      </ul>
+      <h4 class="side-head">Features</h4>
+      <ul class="accordion-nav">
+        <li ><a href="tables.html"><i class="icon-table"></i> Basic Tables</a></li>
+        <li><a href="table-cloth.html"><i class="icon-table"></i> Tables-Theme</a></li>
+        <li><a href="data-tables.html"><i class=" icon-th"></i> Data Tables</a></li>
+        <li><a href="calendar.html"><i class=" icon-calendar"></i> Calendar</a></li>
+        <li><a href="file-manager.html"><i class=" icon-folder-open"></i> File Manager</a></li>
+      </ul>
+      <h4 class="side-head">UI Elements</h4>
+      <ul class="accordion-nav">
+        <li><a href="components-widgets.html"><i class=" icon-list-alt"></i> UI Components</a></li>
+        <li ><a href="buttons-icons.html"><i class=" icon-th-large"></i> Buttons &amp; Icons</a></li>
+      </ul>
+      <h4 class="side-head">Pages</h4>
+      <ul class="accordion-nav">
+        <li><a href="gallery.html"><i class=" icon-picture"></i> Gallery</a></li>
+      </ul>
+      <h4 class="side-head">Charts</h4>
+      <ul class="accordion-nav">
+        <li><a href="flot-chart.html"><i class="icon-bar-chart"></i> Flot Charts</a></li>
+        <li><a href="google-chart.html"><i class="icon-google-plus-sign"></i> Goolge Chart</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+	</div>
+	<div class="main-wrapper">
+		<div class="container-fluid">
+			<div class="row-fluid ">
+				<div class="span12">
+					<div class="primary-head">
+						<h3 class="page-header">All User Interface Elements</h3>
+						
+					</div>
+					<ul class="breadcrumb">
+						<li><a href="#" class="icon-home"></a><span class="divider "><i class="icon-angle-right"></i></span></li>
+						<li><a href="#">Library</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+						<li class="active">UI Elements</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row-fluid">
+			  <div class="span12 code-example">
+                <div class="primary-head">
+						<h3 class="page-header">Dashboard</h3>
+						
+				</div>
+					<div class="switch-board gray">
+						<ul class="clearfix switch-item">
+							<li><span class="notify-tip">30</span><a href="#" class="brown"><i class="icon-user"></i><span>User</span></a></li>
+							<li><a href="#" class="orange"><i class="icon-cogs"></i><span>Settings</span></a></li>
+							<li><a href="#" class=" blue-violate"><i class="icon-lightbulb"></i><span>Support</span></a></li>
+							<li><a href="#" class=" magenta"><i class="icon-bar-chart"></i><span>Statistics</span></a></li>
+							<li><a href="#" class="green"><i class="icon-shopping-cart"></i><span>Orders</span></a></li>
+							<li><a href="#" class=" bondi-blue"><i class="icon-time"></i><span>Events</span></a></li>
+							<li><a href="#" class=" dark-yellow"><i class="icon-file-alt"></i><span>Post</span></a></li>
+							<li><a href="#" class=" blue"><i class="icon-copy"></i><span>Documents</span></a></li>
+						</ul>
+					</div>
+                    <h3>Html Structure</h3>
+<pre class=" prettyprint linenums">
+&lt;div class=&quot;switch-board gray&quot;&gt;
+  &lt;ul class=&quot;clearfix switch-item&quot;&gt;
+    &lt;li&gt;&lt;span class=&quot;notify-tip&quot;&gt;30&lt;/span&gt;&lt;a href=&quot;#&quot; class=&quot;brown&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;&lt;span&gt;User&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;orange&quot;&gt;&lt;i class=&quot;icon-cogs&quot;&gt;&lt;/i&gt;&lt;span&gt;Settings&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot; blue-violate&quot;&gt;&lt;i class=&quot;icon-lightbulb&quot;&gt;&lt;/i&gt;&lt;span&gt;Support&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot; magenta&quot;&gt;&lt;i class=&quot;icon-bar-chart&quot;&gt;&lt;/i&gt;&lt;span&gt;Statistics&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;green&quot;&gt;&lt;i class=&quot;icon-shopping-cart&quot;&gt;&lt;/i&gt;&lt;span&gt;Orders&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot; bondi-blue&quot;&gt;&lt;i class=&quot;icon-time&quot;&gt;&lt;/i&gt;&lt;span&gt;Events&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot; dark-yellow&quot;&gt;&lt;i class=&quot;icon-file-alt&quot;&gt;&lt;/i&gt;&lt;span&gt;Post&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot; blue&quot;&gt;&lt;i class=&quot;icon-copy&quot;&gt;&lt;/i&gt;&lt;span&gt;Documents&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+<p>You can use any background here just have to change a color class name <code>&lt;div class=&quot;switch-board gray&quot;&gt;</code> you can use more 7 colors instead of gray here those are <code>orange, blue-violate, magenta, green, bondi-blue, dark-yellow, blue</code> just change color class name and see the magic. Not only here, you can use those colors classes anywhere in the theme </p>
+
+				</div>
+			</div>
+			
+			
+			
+			
+			<div class="row-fluid">
+				<div class="span12 code-example">
+<div class="content-widgets gray">
+						<div class="widget-head blue">
+							<h3>Notification</h3>
+						</div>
+						<div class="widget-container">
+							<ul class="sample-noty">
+								<li><a href="#" id="add-regular">Add regular notification</a>: Fades out after a certain amount of time, can be set for each notification.</li>
+								<li><a href="#" id="add-sticky">Add sticky notification</a>: Doesn't run on a fade timer. Just sits there until the user manually removes it by clicking on the (X).</li>
+								<li><a href="#" id="add-without-image">Add notification without image</a></li>
+								<li><a href="#" id="add-gritter-light">Add a white notification</a>: has a 'gritter-light' class_name applied to it.</li>
+								<li><a href="#" id="add-with-callbacks">Add notification (with callbacks)</a></li>
+								<li><a href="#" id="add-sticky-with-callbacks">Add a sticky notification (with callbacks)</a></li>
+								<li><a href="#" id="add-max">Add notification with max of 3</a>: If there are 3 messages already on screen, it won't show another one.</li>
+								<li><a href="#" id="remove-all">Remove all notifications</a></li>
+								<li><a href="#" id="remove-all-with-callbacks">Remove all notifications (with callbacks)</a></li>
+							</ul>
+                            
+						</div>
+					</div>
+<h3>Dependent File</h3>
+<pre class="prettyprint linenums">
+&lt;script src=&quot;js/jquery.gritter.js&quot;&gt;&lt;/script&gt;
+&lt;link href=&quot;css/jquery.gritter.css&quot; rel=&quot;stylesheet&quot;&gt;
+</pre>
+<h3>Usage</h3>
+<pre class="prettyprint linenums">
+ $(function () {
+                // global setting override
+                /*
+		$.extend($.gritter.options, {
+		    class_name: 'gritter-light', // for light notifications (can be added directly to $.gritter.add too)
+		    position: 'bottom-left', // possibilities: bottom-left, bottom-right, top-left, top-right
+			fade_in_speed: 100, // how fast notifications fade in (string or int)
+			fade_out_speed: 100, // how fast the notices fade out
+			time: 3000 // hang on the screen for...
+		});
+        */
+                $('#add-sticky').click(function () {
+                    var unique_id = $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a sticky notice!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                        // (string | optional) the image to display on the left
+                        image: 'images/notification-thumb.png',
+                        // (bool | optional) if you want it to fade out on its own or just sit there
+                        sticky: true,
+                        // (int | optional) the time you want it to be alive for before fading out
+                        time: '',
+                        // (string | optional) the class name you want to apply to that specific message
+                        class_name: 'my-sticky-class'
+                    });
+                    // You can have it return a unique id, this can be used to manually remove it later using
+                    /*
+			setTimeout(function(){
+				$.gritter.remove(unique_id, {
+					fade: true,
+					speed: 'slow'
+				});
+			}, 6000)
+			*/
+                    return false;
+                });
+                $('#add-regular').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a regular notice!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                        // (string | optional) the image to display on the left
+                        image: 'images/notification-thumb.png',
+                        // (bool | optional) if you want it to fade out on its own or just sit there
+                        sticky: false,
+                        // (int | optional) the time you want it to be alive for before fading out
+                        time: ''
+                    });
+                    return false;
+                });
+                $('#add-max').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a notice with a max of 3 on screen at one time!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                        // (string | optional) the image to display on the left
+                        image: 'images/notification-thumb.png',
+                        // (bool | optional) if you want it to fade out on its own or just sit there
+                        sticky: false,
+                        // (function) before the gritter notice is opened
+                        before_open: function () {
+                            if ($('.gritter-item-wrapper').length == 3) {
+                                // Returning false prevents a new gritter from opening
+                                return false;
+                            }
+                        }
+                    });
+                    return false;
+                });
+                $('#add-without-image').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a notice without an image!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
+                    });
+                    return false;
+                });
+                $('#add-gritter-light').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a light notification',
+                        // (string | mandatory) the text inside the notification
+                        text: 'Just add a "gritter-light" class_name to your $.gritter.add or globally to $.gritter.options.class_name',
+                        class_name: 'gritter-light'
+                    });
+                    return false;
+                });
+                $('#add-with-callbacks').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a notice with callbacks!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'The callback is...',
+                        // (function | optional) function called before it opens
+                        before_open: function () {
+                            alert('I am called before it opens');
+                        },
+                        // (function | optional) function called after it opens
+                        after_open: function (e) {
+                            alert("I am called after it opens: \nI am passed the jQuery object for the created Gritter element...\n" + e);
+                        },
+                        // (function | optional) function called before it closes
+                        before_close: function (e, manual_close) {
+                            var manually = (manual_close) ? 'The "X" was clicked to close me!' : '';
+                            alert("I am called before it closes: I am passed the jQuery object for the Gritter element... \n" + manually);
+                        },
+                        // (function | optional) function called after it closes
+                        after_close: function (e, manual_close) {
+                            var manually = (manual_close) ? 'The "X" was clicked to close me!' : '';
+                            alert('I am called after it closes. ' + manually);
+                        }
+                    });
+                    return false;
+                });
+                $('#add-sticky-with-callbacks').click(function () {
+                    $.gritter.add({
+                        // (string | mandatory) the heading of the notification
+                        title: 'This is a sticky notice with callbacks!',
+                        // (string | mandatory) the text inside the notification
+                        text: 'Sticky sticky notice.. sticky sticky notice...',
+                        // Stickeh!
+                        sticky: true,
+                        // (function | optional) function called before it opens
+                        before_open: function () {
+                            alert('I am a sticky called before it opens');
+                        },
+                        // (function | optional) function called after it opens
+                        after_open: function (e) {
+                            alert("I am a sticky called after it opens: \nI am passed the jQuery object for the created Gritter element...\n" + e);
+                        },
+                        // (function | optional) function called before it closes
+                        before_close: function (e) {
+                            alert("I am a sticky called before it closes: I am passed the jQuery object for the Gritter element... \n" + e);
+                        },
+                        // (function | optional) function called after it closes
+                        after_close: function () {
+                            alert('I am a sticky called after it closes');
+                        }
+                    });
+                    return false;
+                });
+                $("#remove-all").click(function () {
+                    $.gritter.removeAll();
+                    return false;
+                });
+                $("#remove-all-with-callbacks").click(function () {
+                    $.gritter.removeAll({
+                        before_close: function (e) {
+                            alert("I am called before all notifications are closed.  I am passed the jQuery object containing all  of Gritter notifications.\n" + e);
+                        },
+                        after_close: function () {
+                            alert('I am called after everything has been closed.');
+                        }
+                    });
+                    return false;
+                });
+            });
+</pre>
+
+					<div>
+					</div>
+				</div>
+				
+			</div>
+            	<div class="row-fluid">
+            <div class="span12 code-example">
+               <h3>Mini Chart Widget</h3>
+              <div class="row-fluid"> 
+				<div class="span6 ">
+                 <div class="row-fluid"> 
+                <div class="span6">
+             
+					<div class="board-widgets gray">
+						<div class="board-widgets-head clearfix">
+							<h4 class="pull-left">Visitors</h4>
+							<a href="#" class="widget-settings"><i class="icon-group"></i></a>
+						</div>
+						<div class="board-widgets-content">
+							<div class="line-min-chart min-chart">
+							</div>
+							<div class="stat-text">
+								 26458 <i class="up icon-sort-up"></i> 5%
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="span6">
+             
+					<div class="board-widgets gray">
+						<div class="board-widgets-head clearfix">
+							<h4 class="pull-left">Page View </h4>
+							<a href="#" class="widget-settings"><i class="icon-file-alt"></i></a>
+						</div>
+						<div class="board-widgets-content">
+							<div class="bar-min-chart min-chart">
+							</div>
+							<div class="stat-text">
+								 26458 <i class="down icon-sort-down"></i> 5%
+							</div>
+						</div>
+					</div>
+				</div>
+                </div>
+                 <div class="row-fluid"> 
+                <div class="span6">
+					<div class="board-widgets gray">
+						<div class="board-widgets-head clearfix">
+							<h4 class="pull-left">Clicks </h4>
+							<a href="#" class="widget-settings"><i class="icon-hand-up"></i></a>
+						</div>
+						<div class="board-widgets-content">
+							<div class="pie-min-chart min-chart">
+							</div>
+							<div class="stat-text">
+								 26458 <i class="down icon-sort-down"></i> 5%
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="span6">
+					<div class="board-widgets gray">
+						<div class="board-widgets-head clearfix">
+							<h4 class="pull-left">Earn Money </h4>
+							<a href="#" class="widget-settings"><i class="icon-money"></i></a>
+						</div>
+						<div class="board-widgets-content">
+							<div class="tristate-min-chart min-chart">
+							</div>
+							<div class="stat-text">
+								 26458 <i class="down icon-sort-down"></i> 5%
+							</div>
+						</div>
+					</div>
+				</div>
+                </div>
+				</div>
+                <div class="span6 ">
+                 <h3>Html Structure</h3>
+<pre class=" prettyprint linenums">
+&lt;div class=&quot;board-widgets gray&quot;&gt;
+  &lt;div class=&quot;board-widgets-head clearfix&quot;&gt;
+    &lt;h4 class=&quot;pull-left&quot;&gt;Visitors&lt;/h4&gt;
+    &lt;a href=&quot;#&quot; class=&quot;widget-settings&quot;&gt;&lt;i class=&quot;icon-group&quot;&gt;&lt;/i&gt;&lt;/a&gt; &lt;/div&gt;
+  &lt;div class=&quot;board-widgets-content&quot;&gt;
+    &lt;div class=&quot;line-min-chart min-chart&quot;&gt;
+      &lt;!--CHART LOAD HERE--&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;stat-text&quot;&gt; 26458 &lt;i class=&quot;up icon-sort-up&quot;&gt;&lt;/i&gt; 5% &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+   </div>
+                </div>
+                 <div class="row-fluid"> 
+				<div class="span12 ">
+                
+                <h3>Dependent files</h3>
+ 
+ 
+ <p>All css is in styles.css file</p>
+ <pre class="prettyprint linenums">&lt;script src=&quot;js/jquery.sparkline.js&quot;&gt;&lt;/script&gt;</pre>
+ 
+ <h3>Custom JS</h3>
+<p>Following function already have in index.html <code>&lt;head&gt;</code>section</p>
+
+<pre class=" prettyprint linenums">
+/**=========================
+SPARKLINE MINI CHART
+==============================**/
+$(function () {
+    $(&quot;.line-min-chart&quot;).sparkline([50, 10, 2, 3, 40, 5, 26, 10, 15, 20, 40, 60], {
+        type: &#39;line&#39;,
+        width: &#39;80&#39;,
+        height: &#39;40&#39;,
+        lineColor: &#39;#2b2b2b&#39;,
+        fillColor: &#39;#e5e5e5&#39;,
+        lineWidth: 2,
+        highlightSpotColor: &#39;#0e8e0e&#39;,
+        spotRadius: 3,
+        drawNormalOnTop: true
+    });
+    $(&quot;.bar-min-chart&quot;).sparkline([50, 10, 2, 3, 40, 5, 26, 10, -15, 20, 40, 60], {
+        type: &#39;bar&#39;,
+        height: &#39;40&#39;,
+        barWidth: 4,
+        barSpacing: 1,
+        barColor: &#39;#007f00&#39;
+    });
+    $(&quot;.pie-min-chart&quot;).sparkline([3, 5, 2, 10, 8], {
+        type: &#39;pie&#39;,
+        width: &#39;40&#39;,
+        height: &#39;40&#39;
+    });
+    $(&quot;.tristate-min-chart&quot;).sparkline([1, 1, 0, 1, -1, -1, 1, -1, 0, 0, 1, 1], {
+        type: &#39;tristate&#39;,
+        height: &#39;40&#39;,
+        posBarColor: &#39;#bf005f&#39;,
+        negBarColor: &#39;#ff7f00&#39;,
+        zeroBarColor: &#39;#545454&#39;,
+        barWidth: 4,
+        barSpacing: 1
+    });
+});
+</pre>
+              
+                </div>
+                
+                </div>
+                
+				</div>
+				
+			</div>
+			<div class="row-fluid ">
+            <div class="span12 code-example">
+            <div class="row-fluid ">
+				<div class="span3">
+					<div class="board-widgets orange small-widget">
+						<a href="#"><span class="widget-stat">325</span><span class="widget-icon icon-comments"></span><span class="widget-label">Comments</span></a>
+					</div>
+                    
+				</div>
+				<div class="span3">
+					<div class="board-widgets bondi-blue small-widget">
+						<a href="#"><span class="widget-stat">568</span><span class="widget-icon icon-user"></span><span class="widget-label">User</span></a>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="board-widgets green small-widget">
+						<a href="#"><span class="widget-stat">255</span><span class="widget-icon icon-file-alt"></span><span class="widget-label">Files</span></a>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="board-widgets brown small-widget">
+						<a href="#"><span class="widget-stat">6587</span><span class="widget-icon icon-money"></span><span class="widget-label">Earnings ($)</span></a>
+					</div>
+				</div>
+                </div>
+                <h3>Html Structure</h3>
+<pre class=" prettyprint linenums">
+&lt;div class=&quot;board-widgets orange small-widget&quot;&gt;
+&lt;a href=&quot;#&quot;&gt;
+&lt;span class=&quot;widget-stat&quot;&gt;325&lt;/span&gt;
+&lt;span class=&quot;widget-icon icon-comments&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;widget-label&quot;&gt;Comments&lt;/span&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+<p>You can use any background here just have to change a color class name <code>&lt;div class=&quot;board-widgets orange small-widget&quot;&gt;</code> you can use more 7 colors instead of ornage here. Those are <code>orange, blue-violate, magenta, green, bondi-blue, dark-yellow, blue</code> just change color class name and see the magic. Not only here, you can use those colors classes anywhere in the theme </p>
+                </div>
+			</div>
+            <div class="row-fluid ">
+            <div class="span12 code-example">
+            <div class="row-fluid ">
+				<div class="span3">
+					<div class="board-widgets green">
+						<div class="board-widgets-head clearfix">
+							<h4 class="pull-left"><i class="icon-inbox"></i> Inbox </h4>
+							<a href="#" class="widget-settings"><i class="icon-cog "></i></a>
+						</div>
+						<div class="board-widgets-content">
+							<span class="n-counter">235</span><span class="n-sources">Unread Messages</span>
+						</div>
+						<div class="board-widgets-botttom">
+							<a href="#">Go to Inbox <i class="icon-double-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="board-widgets blue-violate">
+						<div class="board-widgets-head clearfix">
+							<h4 class="pull-left"><i class=" icon-comment"></i> Comments </h4>
+							<a href="#" class="widget-settings"><i class="icon-cog "></i></a>
+						</div>
+						<div class="board-widgets-content">
+							<span class="n-counter">52</span><span class="n-sources">New Comments</span>
+						</div>
+						<div class="board-widgets-botttom">
+							<a href="#">Go to Comments<i class="icon-double-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="board-widgets dark-yellow">
+						<div class="board-widgets-head clearfix">
+							<h4 class="pull-left"><i class=" icon-file-alt"></i> Post </h4>
+							<a href="#" class="widget-settings"><i class="icon-cog "></i></a>
+						</div>
+						<div class="board-widgets-content">
+							<span class="n-counter">85</span><span class="n-sources">New Post</span>
+						</div>
+						<div class="board-widgets-botttom">
+							<a href="#">Go to Post<i class="icon-double-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="board-widgets magenta">
+						<div class="board-widgets-head clearfix">
+							<h4 class="pull-left"><i class="icon-user"></i> User </h4>
+							<a href="#" class="widget-settings"><i class="icon-cog "></i></a>
+						</div>
+						<div class="board-widgets-content">
+							<span class="n-counter">65</span><span class="n-sources">New User</span>
+						</div>
+						<div class="board-widgets-botttom">
+							<a href="#">Go to User<i class="icon-double-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+                </div>
+                <h3>Html Structure</h3>
+<pre class=" prettyprint linenums">
+&lt;div class=&quot;board-widgets green&quot;&gt;
+  &lt;div class=&quot;board-widgets-head clearfix&quot;&gt;
+    &lt;h4 class=&quot;pull-left&quot;&gt;&lt;i class=&quot;icon-inbox&quot;&gt;&lt;/i&gt; Inbox &lt;/h4&gt;
+    &lt;a href=&quot;#&quot; class=&quot;widget-settings&quot;&gt;&lt;i class=&quot;icon-cog &quot;&gt;&lt;/i&gt;&lt;/a&gt; &lt;/div&gt;
+  &lt;div class=&quot;board-widgets-content&quot;&gt; &lt;span class=&quot;n-counter&quot;&gt;235&lt;/span&gt;&lt;span class=&quot;n-sources&quot;&gt;Unread Messages&lt;/span&gt; &lt;/div&gt;
+  &lt;div class=&quot;board-widgets-botttom&quot;&gt; &lt;a href=&quot;#&quot;&gt;Go to Inbox &lt;i class=&quot;icon-double-angle-right&quot;&gt;&lt;/i&gt;&lt;/a&gt; &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<p>You can use any background here just have to change a color class name <code>&lt;div class=&quot;board-widgets green&quot;&gt;</code> you can use more 7 colors instead of green here. Those are <code>orange, blue-violate, magenta, green, bondi-blue, dark-yellow, blue</code> just change color class name and see the magic. Not only here, you can use those colors classes anywhere in the theme </p>
+                </div>
+			</div>
+            <div class="row-fluid">
+				<div class="span12">
+					<div class="content-widgets gray">
+						<div class="widget-head bondi-blue">
+							<h3>Color Picker</h3>
+						</div>
+						<div class="widget-container">
+							<form class="form-horizontal">
+								<div class="control-group">
+									<label class="control-label">Color Picker</label>
+									<div class="controls">
+										<input class="minicolors" data-default-value="#fc0" type="text" value="#3b98bd">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">Inline Color Picker</label>
+									<div class="controls">
+										<input class="minicolors inline" type="text" value="#3b98bd">
+									</div>
+								</div>
+							</form>
+                            
+                            <h3>Dependent File</h3>
+<pre class="prettyprint linenums">
+&lt;script src=&quot;js/jquery.minicolors.js&quot;&gt;&lt;/script&gt;
+&lt;link href=&quot;css/jquery.minicolors.css&quot; rel=&quot;stylesheet&quot;&gt;
+</pre>
+
+<h3>Usage</h3>
+<pre class="prettyprint linenums">
+$(function () {
+var consoleTimeout;
+$('.minicolors').each(function () {
+    //
+    // Dear reader, it's actually much easier than this to initialize 
+    // miniColors. For example:
+    //
+    //  $(selector).minicolors();
+    //
+    // The way I've done it below is just to make it easier for me 
+    // when developing the plugin. It keeps me sane, but it may not 
+    // have the same effect on you!
+    //
+    $(this).minicolors({
+        control: $(this).attr('data-control') || 'hue',
+        defaultValue: $(this).attr('data-default-value') || '',
+        inline: $(this).hasClass('inline'),
+        letterCase: $(this).hasClass('uppercase') ? 'uppercase' : 'lowercase',
+        opacity: $(this).hasClass('opacity'),
+        position: $(this).attr('data-position') || 'default',
+        styles: $(this).attr('data-style') || '',
+        swatchPosition: $(this).attr('data-swatch-position') || 'left',
+        textfield: !$(this).hasClass('no-textfield'),
+        theme: $(this).attr('data-theme') || 'default',
+        change: function (hex, opacity) {
+            // Generate text to show in console
+            text = hex ? hex : 'transparent';
+            if (opacity) text += ', ' + opacity;
+            text += ' / ' + $(this).minicolors('rgbaString');
+            // Show text in console; disappear after a few seconds
+            $('#console').text(text).addClass('busy');
+            clearTimeout(consoleTimeout);
+            consoleTimeout = setTimeout(function () {
+                $('#console').removeClass('busy');
+            }, 3000);
+        }
+    });
+});
+});
+</pre>
+					</div>
+					</div>
+				</div>
+				
+			</div>
+	<div class="row-fluid">
+    <div class="span12 code-example">
+    <h3>Dependent File</h3>
+    <pre class="prettyprint linenums">
+&lt;script src=&quot;js/bootstrap-editable.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/inputs-ext/wysihtml5/wysihtml5.js&quot;&gt;&lt;/script&gt;
+</pre>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="content-widgets gray">
+						<div class="widget-head light-blue">
+							<h3>Inline Editor</h3>
+
+						</div>
+						<div class="widget-container">
+                        
+							<div id="comments" data-type="wysihtml5" data-pk="1">
+								<h2>Inline Text Edit</h2>
+								<p>
+									 Aliquam viverra diam vel tellus viverra ultrices. Etiam lobortis condimentum risus et condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor imperdiet diam, vel euismod nunc laoreet ac. Sed commodo aliquam nisi, nec accumsan felis molestie a. Aenean venenatis porta arcu, et vestibulum sapien sollicitudin non. Fusce facilisis dui eu sem egestas tristique.
+								</p>
+								<p>
+									<strong>Click On Text To Edit</strong>
+								</p>
+							</div>
+                            
+<h3>Usage</h3>                            
+<pre class="prettyprint linenums">
+$(function () {
+    $('#comments').editable({
+        url: '/post',
+        title: 'Enter comments'
+    });
+});
+</pre>
+                            
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="span12">
+						<div class="content-widgets gray">
+							<div class="widget-head light-blue">
+								<h3>Inline Editor</h3>
+							</div>
+							<div class="widget-container">
+								<div data-original-title="Enter notes" data-toggle="manual" data-type="wysihtml5" data-pk="1" id="note" class="editable" tabindex="-1">
+									<h3>WYSIWYG</h3>
+									 WYSIWYG means <i>What You See Is What You Get</i>. <br>
+									 But may also refer to:
+									<ul>
+										<li>WYSIWYG (album), a 2000 album by Chumbawamba</li>
+										<li>"Whatcha See is Whatcha Get", a 1971 song by The Dramatics</li>
+										<li>WYSIWYG Film Festival, an annual Christian film festival</li>
+									</ul>
+									<i>Source:</i><a href="http://en.wikipedia.org/wiki/WYSIWYG_%28disambiguation%29">wikipedia.org</a>
+								</div>
+								<br>
+								<a id="pencil" href="#"><i class="icon-pencil"></i> [CLick Here To Edit]</a>
+                                
+                                
+                                
+                                <h3>Usage</h3>
+<pre class="prettyprint linenums">
+$(function () {
+    $('#pencil').click(function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#note').editable('toggle');
+    });
+});</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="content-widgets gray">
+						<div class="widget-head light-blue">
+							<h3>Html file text editor</h3>
+						</div>
+						<div class="widget-container">
+							<textarea name="" cols="5" rows="5" class="textarea wysihtml"></textarea>
+                            
+                            <h3>Dependent File</h3>
+<pre class="prettyprint linenums">
+&lt;script src=&quot;js/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/inputs-ext/wysihtml5/wysihtml5.js&quot;&gt;&lt;/script&gt;
+</pre>
+                             <h3>Usage</h3>
+<pre class="prettyprint linenums">
+$(function () {
+    $('.textarea').wysihtml5();
+});</pre>                            
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="content-widgets gray">
+						<div class="widget-head blue-violate">
+							<h3>Inline Edit</h3>
+						</div>
+						<div class="widget-container">
+							<a href="#" id="username">CLick This Row To Edit</a>
+                            
+<h3>Usage</h3>
+
+<pre class="prettyprint linenums">                            
+$('#note').editable();
+</pre>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+         </div>
+         </div>   
+            <div class="row-fluid">
+				<div class="span12 code-example">
+					<div class="content-widgets gray">
+						<div class="widget-head light-blue">
+							<h3>Alert/Modal</h3>
+						</div>
+						<div class="widget-container">
+							<button class="alert-box btn">Alert</button>
+							<button class="dialog btn">Dialog</button>
+							<button class="confirm btn">Confirm</button>
+							<button class="prompt btn">Prompt</button>
+						</div>
+					</div>
+                    
+<pre class=" prettyprint linenums">
+&lt;script src=&quot;js/bootbox.js&quot;&gt;&lt;/script&gt;
+</pre>
+
+<pre class=" prettyprint linenums">
+$(document).on("click", ".alert-box", function (e) {
+    bootbox.alert("Hello world!", function () {
+        //callback
+    });
+});
+$(document).on("click", ".confirm", function (e) {
+    bootbox.confirm("Are you sure?", function (result) {
+        //callback
+    });
+});
+$(document).on("click", ".prompt", function (e) {
+    bootbox.prompt("What is your name?", function (result) {
+        if (result === null) {
+            //callback
+        } else {
+            //callback
+        }
+    });
+});
+$(document).on("click", ".dialog", function (e) {
+    bootbox.dialog("I am a custom dialog", [{
+        "label": "Success!",
+        "class": "btn-success",
+        "callback": function () {
+        }
+    }, {
+        "label": "Danger!",
+        "class": "btn-danger",
+        "callback": function () {
+        }
+    }, {
+        "label": "Click ME!",
+        "class": "btn-primary",
+        "callback": function () {
+        }
+    }, {
+        "label": "Just a button..."
+    }]);
+});
+</pre>
+                    
+                    
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		<p>
+			 &copy; 2013 westilian
+		</p>
+	</div>
+	<div class="scroll-top">
+		<a href="#" class="tip-top" title="Go Top"><i class="icon-double-angle-up"></i></a>
+	</div>
+</div>
+</body>
+</html>

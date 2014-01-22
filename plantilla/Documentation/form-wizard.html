@@ -1,0 +1,512 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falgun - Metro Style Bootstrap Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Admin Panel Template">
+<meta name="author" content="Westilian: Kamrujaman Shohel">
+<!-- styles -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="stylesheet" href="css/font-awesome.css">
+<!--[if IE 7]>
+            <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
+        <![endif]-->
+<link href="css/chosen.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<!--[if IE 7]>
+            <link rel="stylesheet" type="text/css" href="css/ie/ie7.css" />
+        <![endif]-->
+<!--[if IE 8]>
+            <link rel="stylesheet" type="text/css" href="css/ie/ie8.css" />
+        <![endif]-->
+<!--[if IE 9]>
+            <link rel="stylesheet" type="text/css" href="css/ie/ie9.css" />
+        <![endif]-->
+<link href="css/prettify.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+<!--fav and touch icons -->
+<link rel="shortcut icon" href="ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+<!--============j avascript===========-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/accordion.nav.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/stepy.jquery.js"></script>
+<script src="js/prettify.js"></script>
+<script src="js/custom.js"></script>
+
+<script src="js/respond.min.js"></script>
+<script src="js/ios-orientationchange-fix.js"></script>
+<script type="text/javascript">
+            $(function () {
+                /*==JQUERY STEPY==*/
+                $('#stepy').stepy({
+                    backLabel: 'Back',
+                    nextLabel: 'Next',
+                    block: true,
+                    description: true,
+                    legend: false,
+                    titleClick: true,
+                    titleTarget: '#stepy_tabby'
+                });
+                $('#stepy1').stepy({
+                    backLabel: 'Back',
+                    nextLabel: 'Next',
+                    block: true,
+                    description: true,
+                    legend: false,
+                    titleClick: true,
+                    titleTarget: '#stepy_tabby1'
+                });
+                $('#stepy_form').stepy({
+                    backLabel: 'Back',
+                    nextLabel: 'Next',
+                    errorImage: true,
+                    block: true,
+                    description: true,
+                    legend: false,
+                    titleClick: true,
+                    titleTarget: '#top_tabby',
+                    validate: true
+                });
+                $('#stepy_form').validate({
+                    errorPlacement: function (error, element) {
+                        $('#stepy_form div.stepy-error').append(error);
+                    },
+                    rules: {
+                        'name': 'required',
+                        'email': 'required',
+                    },
+                    messages: {
+                        'name': {
+                            required: 'Name field is required!'
+                        },
+                        'email': {
+                            required: 'Email field is requerid!'
+                        },
+                    }
+                });
+            });
+        </script>
+</head>
+<body>
+<div class="layout">
+	<!-- Navbar================================================== -->
+	<div class="navbar navbar-inverse top-nav">
+		<div class="navbar-inner">
+			<div class="container">
+				<span class="home-link"><a href="index.html" class="icon-home"></a></span><a class="brand" href="./index.html"><img src="images/logo-falgun.png" width="103" height="50" alt="Falgun"></a>
+				
+				
+			</div>
+		</div>
+	</div>
+	<div class="leftbar leftbar-close clearfix">
+		
+		<div class="left-nav clearfix">
+  <div class="responsive-leftbar"> <i class="icon-list"></i> </div>
+  <div class="left-secondary-nav">
+    <div>
+      <h4 class="side-head">Start</h4>
+      <ul id="nav" class="accordion-nav">
+        <li><a href="index.html"><i class=" icon-cogs"></i> Getting Started </a></li>
+      </ul>
+      <h4 class="side-head">Forms</h4>
+      <ul id="nav" class="accordion-nav">
+        <li><a href="form-elements.html"><i class="icon-list-alt"></i> Form Elements <span class="notify-tip">50</span></a></li>
+        <li><a href="form-components.html"><i class="icon-th"></i> Form Components </a></li>
+        <li><a href="form-validation.html"><i class="icon-ok-circle"></i> Form Validation</a></li>
+        <li><a href="form-wizard.html"><i class="icon-external-link"></i> Wizard </a></li>
+        <li><a href="text-editor.html"><i class="icon-pencil"></i> WYSIWYG editor </a></li>
+      </ul>
+      <h4 class="side-head">Features</h4>
+      <ul class="accordion-nav">
+        <li ><a href="tables.html"><i class="icon-table"></i> Basic Tables</a></li>
+        <li><a href="table-cloth.html"><i class="icon-table"></i> Tables-Theme</a></li>
+        <li><a href="data-tables.html"><i class=" icon-th"></i> Data Tables</a></li>
+        <li><a href="calendar.html"><i class=" icon-calendar"></i> Calendar</a></li>
+        <li><a href="file-manager.html"><i class=" icon-folder-open"></i> File Manager</a></li>
+      </ul>
+      <h4 class="side-head">UI Elements</h4>
+      <ul class="accordion-nav">
+        <li><a href="components-widgets.html"><i class=" icon-list-alt"></i> UI Components</a></li>
+        <li ><a href="buttons-icons.html"><i class=" icon-th-large"></i> Buttons &amp; Icons</a></li>
+      </ul>
+      <h4 class="side-head">Pages</h4>
+      <ul class="accordion-nav">
+        <li><a href="gallery.html"><i class=" icon-picture"></i> Gallery</a></li>
+      </ul>
+      <h4 class="side-head">Charts</h4>
+      <ul class="accordion-nav">
+        <li><a href="flot-chart.html"><i class="icon-bar-chart"></i> Flot Charts</a></li>
+        <li><a href="google-chart.html"><i class="icon-google-plus-sign"></i> Goolge Chart</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+	</div>
+	<div class="main-wrapper">
+		<div class="container-fluid">
+			<div class="row-fluid ">
+				<div class="span12">
+					<div class="primary-head">
+						<h3 class="page-header">Form Wizard</h3>
+						
+					</div>
+					<ul class="breadcrumb">
+						<li><a href="#" class="icon-home"></a><span class="divider "><i class="icon-angle-right"></i></span></li>
+						<li><a href="#">Library</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+						<li class="active">Form Wizard</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+                <h3>Dependent File</h3>
+<pre class="prettyprint">&lt;script src=&quot;js/stepy.jquery.js&quot;&gt;&lt;/script&gt;</pre>               
+
+					<div class="stepy-widget">
+						<div class="widget-head clearfix orange">
+							<div id="top_tabby" class="pull-right">
+							</div>
+						</div>
+						<div class="widget-container gray ">
+							<div class="form-container">
+								<form id="stepy_form" class=" form-horizontal">
+									<fieldset title="Step 1">
+										<legend>description one</legend>
+										<div class="control-group">
+											<label class="control-label">Username</label>
+											<div class="controls">
+												<input name="name" type="text"/>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Email Address</label>
+											<div class="controls">
+												<input name="email" type="email"/>
+											</div>
+										</div>
+									</fieldset>
+									<fieldset title="Step 2">
+										<legend>description two</legend>
+										<div class="control-group">
+											<label class="control-label">First Name</label>
+											<div class="controls">
+												<input type="text" placeholder="First Name" class="input-large">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Last Name</label>
+											<div class="controls">
+												<input type="text" placeholder="Last Name" class="input-large">
+											</div>
+										</div>
+									</fieldset>
+									<fieldset title="Step 3">
+										<legend>description three</legend>
+										<div class="control-group">
+											<label class="control-label">Text Input</label>
+											<div class="controls">
+												<input type="text" placeholder="Text Input" class="input-large">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Checkbox</label>
+											<div class="controls">
+												<label class="checkbox">
+												<input type="checkbox" value="">
+												Option one is this and that—be sure to include why it's great </label>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Radio</label>
+											<div class="controls">
+												<label class="radio">
+												<input type="radio" name="optionsRadios" value="option1" checked>
+												Option one is this and that—be sure to include why it's great </label>
+											</div>
+										</div>
+									</fieldset>
+									<button type="submit" class="finish btn btn-extend"> Finish!</button>
+								</form>
+							</div>
+						</div>
+                         <h3>Html Structure</h3>
+                        <pre class="prettyprint linenums">
+&lt;form id=&quot;stepy_form&quot; class=&quot; form-horizontal&quot;&gt;
+  &lt;fieldset title=&quot;Step 1&quot;&gt;
+    &lt;legend&gt;description one&lt;/legend&gt;
+    &lt;div class=&quot;control-group&quot;&gt;
+      &lt;label class=&quot;control-label&quot;&gt;Username&lt;/label&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;input name=&quot;name&quot; type=&quot;text&quot;/&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;control-group&quot;&gt;
+      &lt;label class=&quot;control-label&quot;&gt;Email Address&lt;/label&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;input name=&quot;email&quot; type=&quot;email&quot;/&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+  &lt;fieldset title=&quot;Step 2&quot;&gt;
+    &lt;legend&gt;description two&lt;/legend&gt;
+    &lt;div class=&quot;control-group&quot;&gt;
+      &lt;label class=&quot;control-label&quot;&gt;First Name&lt;/label&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;First Name&quot; class=&quot;input-large&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;control-group&quot;&gt;
+      &lt;label class=&quot;control-label&quot;&gt;Last Name&lt;/label&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;Last Name&quot; class=&quot;input-large&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+  &lt;fieldset title=&quot;Step 3&quot;&gt;
+    &lt;legend&gt;description three&lt;/legend&gt;
+    &lt;div class=&quot;control-group&quot;&gt;
+      &lt;label class=&quot;control-label&quot;&gt;Text Input&lt;/label&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;Text Input&quot; class=&quot;input-large&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;control-group&quot;&gt;
+      &lt;label class=&quot;control-label&quot;&gt;Checkbox&lt;/label&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;label class=&quot;checkbox&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;
+          Option one is this and that&mdash;be sure to include why it&#39;s great &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;control-group&quot;&gt;
+      &lt;label class=&quot;control-label&quot;&gt;Radio&lt;/label&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;label class=&quot;radio&quot;&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; value=&quot;option1&quot; checked&gt;
+          Option one is this and that&mdash;be sure to include why it&#39;s great &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;finish btn btn-extend&quot;&gt; Finish!&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+<h3>Usage</h3>
+
+<pre class="prettyprint linenums">
+ $('#stepy_form').validate({
+        errorPlacement: function (error, element) {
+            $('#stepy_form div.stepy-error').append(error);
+        },
+        rules: {
+            'name': 'required',
+            'email': 'required',
+        },
+        messages: {
+            'name': {
+                required: 'Name field is required!'
+            },
+            'email': {
+                required: 'Email field is requerid!'
+            },
+        }
+    });
+  });
+</pre>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="stepy-widget">
+						<div class="widget-head clearfix bondi-blue">
+							<div id="stepy_tabby" class="pull-right">
+							</div>
+						</div>
+						<div class="widget-container gray ">
+							<div class="form-container">
+								<form id="stepy" class=" form-horizontal left-align form-well">
+									<fieldset title="Step 1">
+										<legend>description one</legend>
+										<div class="control-group">
+											<label class="control-label">Username</label>
+											<div class="controls">
+												<input name="name" type="text"/>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Email Address</label>
+											<div class="controls">
+												<input name="email" type="email"/>
+											</div>
+										</div>
+									</fieldset>
+									<fieldset title="Step 2">
+										<legend>description two</legend>
+										<div class="control-group">
+											<label class="control-label">First Name</label>
+											<div class="controls">
+												<input type="text" placeholder="First Name" class="input-large">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Last Name</label>
+											<div class="controls">
+												<input type="text" placeholder="Last Name" class="input-large">
+											</div>
+										</div>
+									</fieldset>
+									<fieldset title="Step 3">
+										<legend>description three</legend>
+										<div class="control-group">
+											<label class="control-label">Text Input</label>
+											<div class="controls">
+												<input type="text" placeholder="Text Input" class="input-large">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Checkbox</label>
+											<div class="controls">
+												<label class="checkbox">
+												<input type="checkbox" value="">
+												Option one is this and that—be sure to include why it's great </label>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Radio</label>
+											<div class="controls">
+												<label class="radio">
+												<input type="radio" name="optionsRadios" value="option1" checked>
+												Option one is this and that—be sure to include why it's great </label>
+											</div>
+										</div>
+									</fieldset>
+									<button type="submit" class="finish btn btn-extend"> Finish!</button>
+								</form>
+<h3>Usage</h3>
+
+<pre class="prettyprint linenums">
+$('#stepy').stepy({
+    backLabel: 'Back',
+    nextLabel: 'Next',
+    block: true,
+    description: true,
+    legend: false,
+    titleClick: true,
+    titleTarget: '#stepy_tabby'
+});
+</pre>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="stepy-widget">
+						<div class="widget-head clearfix blue-violate">
+							<div id="stepy_tabby1">
+							</div>
+						</div>
+						<div class="widget-container gray ">
+							<div class="form-container">
+								<form id="stepy1" class=" form-horizontal left-align form-well">
+									<fieldset title="Step 1">
+										<legend>description one</legend>
+										<div class="control-group">
+											<label class="control-label">Username</label>
+											<div class="controls">
+												<input name="name" type="text"/>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Email Address</label>
+											<div class="controls">
+												<input name="email" type="email"/>
+											</div>
+										</div>
+									</fieldset>
+									<fieldset title="Step 2">
+										<legend>description two</legend>
+										<div class="control-group">
+											<label class="control-label">First Name</label>
+											<div class="controls">
+												<input type="text" placeholder="First Name" class="input-large">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Last Name</label>
+											<div class="controls">
+												<input type="text" placeholder="Last Name" class="input-large">
+											</div>
+										</div>
+									</fieldset>
+									<fieldset title="Step 3">
+										<legend>description three</legend>
+										<div class="control-group">
+											<label class="control-label">Text Input</label>
+											<div class="controls">
+												<input type="text" placeholder="Text Input" class="input-large">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Checkbox</label>
+											<div class="controls">
+												<label class="checkbox">
+												<input type="checkbox" value="">
+												Option one is this and that—be sure to include why it's great </label>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Radio</label>
+											<div class="controls">
+												<label class="radio">
+												<input type="radio" name="optionsRadios" value="option1" checked>
+												Option one is this and that—be sure to include why it's great </label>
+											</div>
+										</div>
+									</fieldset>
+									<button type="submit" class="finish btn btn-extend"> Finish!</button>
+								</form>
+<h3>Usage</h3>
+
+<pre class="prettyprint linenums">
+$('#stepy1').stepy({
+    backLabel: 'Back',
+    nextLabel: 'Next',
+    block: true,
+    description: true,
+    legend: false,
+    titleClick: true,
+    titleTarget: '#stepy_tabby1'
+});
+</pre>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		<p>
+			&copy; 2013 westilian
+		</p>
+	</div>
+	<div class="scroll-top">
+		<a href="#" class="tip-top" title="Go Top"><i class="icon-double-angle-up"></i></a>
+	</div>
+</div>
+</body>
+</html>

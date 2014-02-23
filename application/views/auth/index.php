@@ -1,9 +1,41 @@
-<h1><?php echo lang('index_heading');?></h1>
-<p><?php echo lang('index_subheading');?></p>
+<div class="container-fluid">
+    <div class="row-fluid ">
+        <div class="span12">
+            <div class="primary-head">
+                <h3 class="page-header hidden-phone"><?php echo lang('index_heading');?></h3>
 
-<div id="infoMessage"><?php echo $message;?></div>
 
-<table cellpadding=0 cellspacing=10>
+                <div class="btn-group">
+
+
+                    <a class="btn btn-success" href="<?php echo base_url('auth/create_user') ?>"><i class="icon-plus"></i> Nuevo usuario</a>
+                    <a class="btn btn-success" href="<?php echo base_url('auth/create_group') ?>"><i class="icon-plus"></i> Nuevo Grupo</a>
+
+
+                </div>
+
+
+                </div>
+
+           </div>
+        </div>
+    </div>
+
+
+
+
+
+<div class="row-fluid ">
+    <div class="span12">
+        <div id="infoMessage" class="label"><?php echo $message;?></div>
+        </div>
+</div>
+
+
+<div class="row-fluid">
+    <div class="span12">
+
+<table class="table">
 	<tr>
 		<th><?php echo lang('index_fname_th');?></th>
 		<th><?php echo lang('index_lname_th');?></th>
@@ -23,9 +55,15 @@
                 <?php endforeach?>
 			</td>
 			<td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, lang('index_active_link')) : anchor("auth/activate/". $user->id, lang('index_inactive_link'));?></td>
-			<td><?php echo anchor("auth/edit_user/".$user->id, 'Edit') ;?></td>
+			<td><?php echo anchor("auth/edit_user/".$user->id, 'Editar') ;?></td>
 		</tr>
 	<?php endforeach;?>
 </table>
 
-<p><?php echo anchor('auth/create_user', lang('index_create_user_link'))?> | <?php echo anchor('auth/create_group', lang('index_create_group_link'))?></p>
+ </div>
+
+
+    </div>
+
+
+</div>

@@ -4,14 +4,12 @@
 					<div class="primary-head">
 						<h3 class="page-header hidden-phone">Matriculas de alumno</h3>
 						<ul class="top-right-toolbar">
+
 							<li>
-								<a data-toggle="dropdown" class="dropdown-toggle blue-violate" href="#" data-original-title="Users"><i class="icon-user"></i></a>
+								<a href="<?php echo base_url('g_administrativa/formulario/0/'.$estudiante->id)?>" class="green" data-original-title="Nueva Matricula"><i class=" icon-plus"></i></a>
 							</li>
 							<li>
-								<a href="#" class="green" data-original-title="Upload"><i class=" icon-upload-alt"></i></a>
-							</li>
-							<li>
-								<a href="#" class="bondi-blue" data-original-title="Settings"><i class="icon-cogs"></i></a>
+								<a href="#" class="bondi-blue" data-original-title="Volver"><i class="icon-reply"></i></a>
 							</li>
 						</ul>
 					</div>

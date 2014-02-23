@@ -21,6 +21,8 @@
                                 <button type="submit" class="btn btn-success"><i class="icon-trash"></i> Eliminar</button>
                             <?php } ?>
 
+                            <a class="btn btn-success" href="<?php echo base_url('g_administrativa/matriculas/0/'.$estudiante->numCI) ?>"><i class="icon-reply"></i> Regresar a la lista</a>
+
 
 					</div>
 					
@@ -122,7 +124,7 @@
 										 <select name="semestre" id="curso">
                                      	<option value="0">Seleccione...</option>
                                              <?php for($i = 1;$i<= $carrera_sl; $i++){   ?>
-                                                 <option <?php if($estudiante->semestre_insc == $i){ echo 'selected="selected"'; }?>value="<?php echo $i?>"><?php echo "Semestre: ".$i;?></option>
+                                                 <option disabled="disabled" <?php if($estudiante->semestre_insc == $i){ echo 'selected="selected"'; }?>value="<?php echo $i?>"><?php echo "Semestre: ".$i;?></option>
                                              <?php } ?>
                                      </select>
 									</div>
@@ -131,14 +133,14 @@
                                 <div class="span5"><div class="control-group">
 									<label class="control-label">Monto matrícula</label>
 									<div class="controls">
-										<input type="text" class="span12" value="<?php echo $estudiante->monto_matricula; ?>" placeholder="Text Input" name="monto_matricula">
+										<input required type="text" class="span12" value="<?php echo $estudiante->monto_matricula; ?>" placeholder="Text Input" name="monto_matricula">
 									</div>
 								</div></div>
                                 
                                  <div class="span7"><div class="control-group">
 									<label class="control-label">Matrícula Exon</label>
 									<div class="controls">
-										<input type="text" class="span7" value="<?php echo $estudiante->matricula_exon; ?>" placeholder="Text Input" name="matricula_exon">
+										<input required type="text" class="span7" value="<?php echo $estudiante->matricula_exon; ?>" placeholder="Text Input" name="matricula_exon">
 									</div>
 								</div></div>
 								
@@ -147,14 +149,14 @@
                                 <div class="span5"><div class="control-group">
 									<label class="control-label">Monto de la Cuota</label>
 									<div class="controls">
-										<input type="text" class="span12" id="monto" name="monto_cuota" value="<?php echo $estudiante->monto_cuota; ?>" >
+										<input required type="text" class="span12" id="monto" name="monto_cuota" value="<?php echo $estudiante->monto_cuota; ?>" >
 									</div>
 								</div></div>
                                 
                                  <div class="span7"><div class="control-group">
 									<label class="control-label">Cantidad de Cuotas</label>
 									<div class="controls">
-										<input type="text" class="span7" id="cuotas" name="cantidad_cuotas"  value="<?php echo $estudiante->cantidad_cuotas; ?>">
+										<input required type="text" class="span7" id="cuotas" name="cantidad_cuotas"  value="<?php echo $estudiante->cantidad_cuotas; ?>">
 									</div>
 								</div></div>
 								
@@ -164,9 +166,9 @@
 									<label class="control-label">Fecha de vencimiento</label>
 									<div class="controls">
 
-                                        <div class="input-append" id="datetimepicker4">
+                                        <div  class="input-append" id="datetimepicker4">
 
-                                       <input type="date" placeholder="AAAA-MM-DD" data-format="yyyy-MM-dd" class="span12 input-append" name="fecha_vence_cuota"  value="<?php echo $estudiante->fecha_vence_cuota; ?>">
+                                       <input required type="date" placeholder="AAAA-MM-DD" data-format="yyyy-MM-dd" class="span12 input-append" name="fecha_vence_cuota"  value="<?php echo $estudiante->fecha_vence_cuota; ?>">
                                           </div>
                                     </div>
 								</div></div>
@@ -174,7 +176,7 @@
                                  <div class="span7"><div class="control-group">
 									<label class="control-label">Interés por Mora</label>
 									<div class="controls">
-										<input type="text" class="span7" placeholder="Text Input" name="int_mora"  value="<?php echo $estudiante->int_mora; ?>">
+										<input required type="text" class="span7" placeholder="Text Input" name="int_mora"  value="<?php echo $estudiante->int_mora; ?>">
 									</div>
 								</div></div>
 								
@@ -282,16 +284,18 @@
 			
 		})
 		
-	$('#carrera').change(function(e){			
-				
-    $("#curso").jCombo("<?php echo base_url('g_institucion/load_combo/semestres-')?>"+$('#carrera').val()+'-', {
-					parent: "#carrera",  
-					selected_value: '0' });
-			
+	$('#carrera').change(function(e){
+
+        var Car = $('#carrera').val();
+
+        $("#curso").jCombo("<?php echo base_url('g_institucion/load_combo/?option=semestres&id=')?>"+Car+'&', {
+            parent: "#carrera",
+            selected_value: '0' });
+
 					
 		
 			
-		//	alert($('#sede').val())
+
 			
 		})
 		

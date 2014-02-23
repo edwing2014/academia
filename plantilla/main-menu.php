@@ -68,18 +68,20 @@
 									<li>
 										<a href="<?=base_url()?>g_institucion/carreras"><i class="icon-file"></i>Carreras</a>
 									</li>
-									<li>
-										<a href="<?=base_url()?>g_institucion/cursos"><i class="icon-file"></i>Cursos</a>
-									</li>
+<!--									<li>-->
+<!--										<a href="--><?//=base_url()?><!--g_institucion/cursos"><i class="icon-file"></i>Cursos</a>-->
+<!--									</li>-->
 									<li>
 									<a href="<?=base_url()?>g_institucion/asignaturas"><i class="icon-file"></i>Asignaturas</a></li>
-									<li><a href="<?=base_url()?>g_institucion/secciones" ><i class="icon-file"></i>Secciones</a></li>
-                                    <li class="dropdown hidden-phone">
-						<a href="<?=base_url()?>welcome/grupos" ><i class="icon-beaker"></i> Grupos Escolares</a>						</li>
-                        <li class="dropdown hidden-phone">
-							<a href="<?=base_url()?>welcome/aulas" ><i class="icon-beaker"></i> Aulas</a>
-						
-						</li>
+<!--									<li><a href="--><?//=base_url()?><!--g_institucion/secciones" ><i class="icon-file"></i>Secciones</a></li>-->
+<!--                                    <li class="dropdown hidden-phone">-->
+<!--						<a href="--><?//=base_url()?><!--welcome/grupos" ><i class="icon-beaker"></i> Grupos Escolares</a>						</li>-->
+<!--                       -->
+<!--                       </li>-->
+<!--                        <li class="dropdown hidden-phone">-->
+<!--							<a href="--><?//=base_url()?><!--welcome/aulas" ><i class="icon-beaker"></i> Aulas</a>-->
+<!--						-->
+<!--						</li>-->
 								</ul>
 							</div>
 						</li>
@@ -110,7 +112,7 @@
 							<div class="dropdown-menu">
 								<ul>
 									<li>
-									<a href="flot-chart.html"><i class="icon-bar-chart"></i>Usuarios</a></li>
+									<a href="<?php echo base_url('auth/index');?>"><i class="icon-bar-chart"></i>Usuarios</a></li>
                                     
                                     <li>
 									<a href="flot-chart.html"><i class="icon-bar-chart"></i>Seguridad</a></li>
@@ -133,9 +135,9 @@
 					</div>
 					<div class="btn-group">
 						<div class="dropdown">
-							<a class="btn btn-notification"><i class="icon-lock"></i></a>
+							<a class="btn btn-notification" href="<?php echo base_url('auth/logout');?>"><i class="icon-lock"></i></a>
 						</div>
-					</div>
+
 				</div>
 			</div>
 		</div>

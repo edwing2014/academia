@@ -1,4 +1,10 @@
-<h1><?php echo lang('create_group_heading');?></h1>
+<div class="container-fluid">
+    <div class="row-fluid ">
+        <div class="span12">
+            <div class="primary-head">
+                <h3 class="page-header">
+<?php echo lang('create_group_heading');?></h3>
+            </div>
 <p><?php echo lang('create_group_subheading');?></p>
 
 <div id="infoMessage"><?php echo $message;?></div>
@@ -15,6 +21,10 @@
             <?php echo form_input($description);?>
       </p>
 
-      <p><?php echo form_submit('submit', lang('create_group_submit_btn'));?></p>
+            <button class="btn btn-succees" type="submit">Guardar</button>
 
-<?php echo form_close();?>
+            <?php echo form_close();?>
+
+        </div>
+    </div>
+</div>

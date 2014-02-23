@@ -1,4 +1,10 @@
-<h1><?php echo lang('edit_user_heading');?></h1>
+<div class="container-fluid">
+    <div class="row-fluid ">
+        <div class="span12">
+            <div class="primary-head">
+                <h3 class="page-header">
+<?php echo lang('edit_user_heading');?></h3>
+            </div>
 <p><?php echo lang('edit_user_subheading');?></p>
 
 <div id="infoMessage"><?php echo $message;?></div>
@@ -57,6 +63,8 @@
       <?php echo form_hidden('id', $user->id);?>
       <?php echo form_hidden($csrf); ?>
 
-      <p><?php echo form_submit('submit', lang('edit_user_submit_btn'));?></p>
-
-<?php echo form_close();?>
+            <button class="btn btn-succees" type="submit">Guardar</button>
+            <?php echo form_close();?>
+        </div>
+    </div>
+</div>

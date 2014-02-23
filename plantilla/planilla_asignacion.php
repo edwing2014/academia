@@ -47,11 +47,29 @@ var selected = new Array();
 
 
 </div>
-<div class="span5"><label>Asignaturas de este estudiante:</label><select size="20" style="width:85%"  id="asignadasest" multiple="multiple">
-<?php
-foreach($asignaturas as $asignatura){ ?>
 
-    <option value="<?php echo $asignatura['id_relacion']; ?>"><?php echo $asignatura['asignatura']; ?></option>
+<div class="span5"><label>Asignaturas de este estudiante:</label><select size="20" style="width:85%"  id="asignadasest" multiple="multiple" name="asignaturas[]">
+<?php
+foreach($asignaturas as $asignatura){
+
+    $semestre_r =  $this->db->query("select semestre_relacion from relaciones_core where id = '$asignatura[id_relacion]'")->row();
+
+    ?>
+
+
+    <option value="<?php echo $asignatura['id_relacion']; ?>"><?php echo $asignatura['asignatura'].' Semestre: '.$semestre_r->semestre_relacion; ?></option>
+
+    <script>
+
+        //si no esta en array
+        if($.inArray('<?php echo $asignatura['id_relacion']; ?>', selected) == -1){
+            selected.push('<?php echo $asignatura['id_relacion']; ?>');
+
+            //$("#asignaturassl1 option[value='"+$(this).val()+"']").remove();
+
+            $('#asignadasest').append("<option value=\""+$(this).val()+"\">"+$(this).text()+"</option>")
+        }
+    </script>
 
 <?php } ?>
 </select>
@@ -117,6 +135,7 @@ foreach($asignaturas as $asignatura){ ?>
   url: "<?php echo base_url(); ?>g_institucion/get_asignaturas_combo/"+$(this).val(),
   cache: false
 }).done(function( html ) {
+            $("#asignaturassl1").html('');
   $("#asignaturassl1").html(html);
 });
 
@@ -173,6 +192,8 @@ foreach($asignaturas as $asignatura){ ?>
                     url: "<?php echo base_url(); ?>g_institucion/get_matricula_panel/"+$(this).val(),
                     cache: false
                 }).done(function( html ) {
+
+
                         $("#result_matricula").html(html);
 
 
@@ -188,6 +209,8 @@ foreach($asignaturas as $asignatura){ ?>
                     url: "<?php echo base_url(); ?>g_institucion/asignaturas_matricula_combo/"+$(this).val(),
                     cache: false
                 }).done(function( html ) {
+
+                        $("#asignaturassl1").html('');
                         $("#asignaturassl1").append(html);
 
 
@@ -220,7 +243,7 @@ foreach($asignaturas as $asignatura){ ?>
 		
 	if(selected.length > 0){	
 		$.ajax({
-  url: "<?php echo base_url(); ?>g_institucion/asignar_asignaturas/"+estudiante,
+  url: "<?php echo base_url(); ?>g_institucion/asignar_asignaturas/"+estudiante+'/'+$('#matriculacmb').val(),
   cache: false,
   type:'post',
   data:{'asignaturas':selected.join(","),'estudiante':estudiante}

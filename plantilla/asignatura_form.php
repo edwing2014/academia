@@ -486,19 +486,7 @@ $sedes_arr =  explode(',',$asignatura_data->sede);
             //value:'NINGUNO',
             valueField : "id",
             allowBlank:false,
-            store: [  <?php  $sedes_arr =  explode(',',$asignatura_data->sede);
-            $sep = '';
-               for($i=0;$i<=11;$i++){
-
-
-
-                     echo $sep."['".($i+1)."','"."Semestre ".($i+1)."']";
-                    $sep = ',';
-
-                    }
-             ?>]
-
-            ,
+            store: storesem ,
             listeners:{
                 select:{fn:function(combo, value) {
 

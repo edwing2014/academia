@@ -17,7 +17,7 @@
                     <button type="button" class="btn btn-primary" id="clearf"><i class="icon-remove"></i> Limpiar</button>
 
                     <?php if($id){ ?>
-                    <button type="button" class="btn btn-info"><i class="icon-print"></i> Imprimir</button>
+                    <button onclick="window.open ('<?php echo base_url()?>g_estudiantes/imprimir_f_alumno/<?php echo $estudiante_data->id; ?>','printinscripcion','menubar=1,resizable=1,width=950,height=800');" type="button" class="btn btn-info"><i class="icon-print"></i> Imprimir</button>
                     <?php } ?>
                     <button type="submit" class="btn btn-success"><i class="icon-save"></i> Guardar Alumno</button>
 
@@ -163,33 +163,35 @@
 
     </div>
 
-    <div class="row-fluid">
+   <!-- <div class="row-fluid">
         <div class="span4"  align="center">
             <label>Semestre</label>
             <select name="semestre_insc" id="curso" class="span11 left-stripe">
                 <option value="0">Seleccione...</option>
-                <?php for($i = 1;$i<= $carrera_sl; $i++){   ?>
-                    <option <?php if($estudiante_data->semestre_insc == $i){ echo 'selected="selected"'; }?>value="<?php echo $i?>"><?php echo "Semestre: ".$i;?></option>
-                <?php } ?>
+                <?php /*for($i = 1;$i<= $carrera_sl; $i++){   */?>
+                    <option <?php /*if($estudiante_data->semestre_insc == $i){ echo 'selected="selected"'; }*/?>value="<?php /*echo $i*/?>"><?php /*echo "Semestre: ".$i;*/?></option>
+                <?php /*} */?>
             </select>
 
         </div>
 
         <div class="span4">
             <label>Código de procedencia</label>
-            <input name="codProcedencia" value="<?php echo $estudiante_data->codProcedencia; ?>" required="required" class="span11 left-stripe" type="text">
+            <input name="codProcedencia" value="<?php /*echo $estudiante_data->codProcedencia; */?>" required="required" class="span11 left-stripe" type="text">
 
         </div>
 
         <div class="span4">
             <label>Bachiller culminado</label>
-            <input type="text" name="bachiller_terminado" value="<?php echo $estudiante_data->bachiller_terminado; ?>" required="required" class="span11 left-stripe" type="text">
+            <input type="text" name="bachiller_terminado" value="<?php /*echo $estudiante_data->bachiller_terminado; */?>" required="required" class="span11 left-stripe" type="text">
 
         </div>
 
 
 
-    </div>
+    </div>-->
+
+
     <div class="row-fluid">
         <h5 style="margin-left: 25px">Tipo de ingreso a la institución</h5>
     </div>
@@ -267,7 +269,7 @@
 
         $('#carrera').change(function(e){
 
-            $("#curso").jCombo("<?php echo base_url('g_institucion/load_combo/semestres-')?>"+$('#carrera').val()+'-', {
+            $("#curso").jCombo("<?php echo base_url('g_institucion/load_combo/?option=semestres&id=')?>"+$('#carrera').val(), {
                 parent: "#carrera",
                 selected_value: '0' });
 
